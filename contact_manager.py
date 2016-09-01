@@ -71,15 +71,11 @@ def edit_contact():
 	print "Contact Not Found."
 
 def write_file(file_name):
-	contact_text_list =[]
-	for i in range(len(contact_list)):
-		contact_text_list[i][0] = contact_list[i].first_name
-		contact_text_list[i][1] = contact_list[i].last_name
-		contact_text_list[i][2] = contact_list[i].mobile
-
-
+	contact_string = ""
+	for contact in contact_list:
+		contact_string = contact_string + contact.first_name + "," + contact.last_name + "," + contact.mobile_number + "," + contact.work_number + "," + contact.email
 	with open (file_name, mode = 'a') as my_file:
-		my_file.write(contact_text_list)
+		my_file.write(contact_string)
 
 
 
